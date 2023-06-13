@@ -23,7 +23,8 @@ app.get('/', (req,res) => {
     res.send('APP IS RUNNING');
 });
 
-const CONNECTION_URL = "mongodb://ak2711474:ak2711474@ac-pjsrkgs-shard-00-00.dxx9jxd.mongodb.net:27017,ac-pjsrkgs-shard-00-01.dxx9jxd.mongodb.net:27017,ac-pjsrkgs-shard-00-02.dxx9jxd.mongodb.net:27017/?ssl=true&replicaSet=atlas-6w9zwt-shard-0&authSource=admin&retryWrites=true&w=majority";
+
+const CONNECTION_URL = process.env.CONNECTION_URL || "mongodb://ak2711474:ak2711474@ac-pjsrkgs-shard-00-00.dxx9jxd.mongodb.net:27017,ac-pjsrkgs-shard-00-01.dxx9jxd.mongodb.net:27017,ac-pjsrkgs-shard-00-02.dxx9jxd.mongodb.net:27017/?ssl=true&replicaSet=atlas-6w9zwt-shard-0&authSource=admin&retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
